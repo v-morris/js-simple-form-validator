@@ -1,11 +1,11 @@
 const formSchema = {
   username: {
     type: {
-      dataType: 'text',
-      message: 'Invalid input',
+      dataType: "text",
+      message: "Invalid input",
     },
     required: {
-      message: 'Username is required',
+      message: "Username is required",
     },
     minlength: (function () {
       this.minimum = 3;
@@ -19,11 +19,11 @@ const formSchema = {
   },
   password: {
     type: {
-      dataType: 'password',
-      message: 'Invalid input',
+      dataType: "password",
+      message: "Invalid input",
     },
     required: {
-      message: 'Password is required',
+      message: "Password is required",
     },
     minlength: (function () {
       this.minimum = 6;
@@ -37,13 +37,13 @@ const formSchema = {
   },
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  const schema = Validator(formSchema, 'userDetails');
+document.addEventListener("DOMContentLoaded", () => {
+  const schema = new Validator(formSchema, "userDetails");
   schema.validate();
 
-  document.getElementById('userDetails').addEventListener('input', (e) => {
-    console.log('getInvalidFields', schema.getInvalidFields());
-    console.log('getIsFormValid', schema.getIsFormValid());
-    console.log('validation message', e.target.validationMessage);
+  document.getElementById("userDetails").addEventListener("input", (e) => {
+    console.log("invalidFields", schema.invalidFields);
+    console.log("isFormValid", schema.isFormValid);
+    console.log("validation message", e.target.validationMessage);
   });
 });
